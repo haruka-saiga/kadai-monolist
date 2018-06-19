@@ -5,7 +5,7 @@
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
-                            <img src="{{ $item->image_url }}" alt="">
+                            <img src="{{ $item->image_url }}" alt="" class="">
                         </div>
                         <div class="panel-body">
                             @if ($item->id)
@@ -13,11 +13,20 @@
                             @else
                                 <p class="item-title">{{ $item->name }}</p>
                             @endif
-                            <div class="buttons text-center">
-                               @if (Auth::check())
+                            <td>
+                            <span class="form-inline　text-center">
+                            <span class="buttons text-center">
+                                @if (Auth::check())
                                     @include('items.want_button', ['item' => $item])
                                 @endif
-                            </div>
+                            </span>
+                            <span class="buttons text-center">
+                                @if (Auth::check())
+                                    @include('items.have_button', ['item' => $item])
+                                @endif
+                            </span>
+                            </span>
+                            </td>
                         </div>
                     </div>
                 </div>
